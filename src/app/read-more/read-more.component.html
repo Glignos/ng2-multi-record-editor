@@ -1,0 +1,7 @@
+<div [innerHTML]='text | toggleText: maxLength: isCollapsed '></div>
+<div *ngIf="isCollapsed">
+<a  (click)="toggleView()"> Read more</a>
+</div>
+<div *ngIf="!isCollapsed">
+<a  (click)="toggleView()"> Read less</a>
+</div>

@@ -1,3 +1,31 @@
-<ul *ngFor="let record of records">
-  {{record | json}}
-</ul>
+<img src="../assets/inspire_logo_hep.png" class='inspire-logo' />
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="input-group item-group">
+        <div class="input-group-btn search-panel">
+          <div class="btn-group" dropdown>
+            <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">
+                    	<span id="search_concept">Filter by Collection</span> <span class="caret"></span>
+                    </button>
+            <ul *dropdownMenu class="dropdown-menu" role="menu">
+              <ul *ngFor="let collection of collections">
+                <li role="menuitem"><a class="dropdown-item" href="{{collection}}">{{collection}}</a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+        <input type="text" [(ngModel)]="search_term" class="form-control" name="x" placeholder="Search term...">
+        <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+      <ul>
+        <li *ngFor="let record of records | paginate: { itemsPerPage: 2, currentPage: p, totalItems: total }" class="list-group list-group-item">
+          <pre> <read-more [text]="record" [maxLength]="100"></read-more></pre>
+        </li>
+      </ul>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
