@@ -12,4 +12,10 @@ export class ApiService {
     return this.http.get(url)
       .map(res => res.json())
   }
+
+  searchUrl(term: string ,filter: string): Observable<Array<{}>> {
+    return this.http.get('../../assets/mock-data.json/?title=${term}')
+      .map(res => res.json())
+  } 
+
 }
