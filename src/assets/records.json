@@ -25,7 +25,9 @@
           }
         ],
         "uuid":"e384ab80-349c-49bc-a8bb-6a8eb849135a",
-        "full_name":"Fecko, M."
+        "comment_3":"added",
+        "full_name":"Fecko, M.",
+        "comment_4":"added"
       }
     ],
     "titles":[
@@ -38,6 +40,7 @@
         "year":2011
       }
     ],
+    "comment_1":"added",
     "keywords":[
       {
         "value":"book",
@@ -92,6 +95,7 @@
         "schema":"INSPIRE"
       }
     ],
+    "comment_2": "added",
     "external_system_identifiers":[
       {
         "value":"D07-02271",
@@ -129,9 +133,11 @@
         "medium":"print",
         "value":"9780521845076"
       },
-      {
+      { 
+        "comment_5": "added",
         "medium":"online",
-        "value":"9780511242960"
+        "value":"9780511242960",
+        "comment_6": "added"
       }
     ],
     "abstracts":[

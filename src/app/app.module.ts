@@ -9,11 +9,13 @@ import { SHARED_SERVICES } from './shared';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination'; 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { DiffPipePipe } from './shared/pipes/diff-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MultiEditorComponent,
+    DiffPipePipe,
   ],
   imports: [
     BsDropdownModule.forRoot(),

@@ -22,7 +22,7 @@
       </div>
       <ul>
         <li *ngFor="let record of records | paginate: { itemsPerPage: 2, currentPage: p, totalItems: total }" class="list-group list-group-item">
-          <pre> {{record | json}} </pre>
+          <pre [innerHTML]="record | diffPipe"> </pre>
         </li>
       </ul>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
