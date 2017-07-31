@@ -1,8 +1,8 @@
 <img src="../assets/inspire_logo_hep.png" class='inspire-logo' />
 <div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="input-group item-group">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group item-group">
         <div class="input-group-btn search-panel">
           <div class="btn-group" dropdown>
             <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">
@@ -20,7 +20,8 @@
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
         </span>
       </div>
-      <ul>
+      <ul class="list-unstyled">
+          <actions-template></actions-template>
         <li *ngFor="let record of records | paginate: { itemsPerPage: 2, currentPage: p, totalItems: total }" class="list-group list-group-item">
           <pre [innerHTML]="record | diffPipe"> </pre>
         </li>

@@ -1,0 +1,3 @@
+<div *ngFor="let key of keys">
+<label>{{key}}</label> <label *ngIf="req_keys.indexOf(key) > 0"> This is a required key </label>  <input type="text"  style="width: 8px" [(ngModel)]="map[key]" class="form-control"  placeholder="{{key}} to be added...">
+</div> 

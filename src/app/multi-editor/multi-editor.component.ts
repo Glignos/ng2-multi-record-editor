@@ -41,6 +41,5 @@ export class MultiEditorComponent implements OnInit {
       this.schemaKeysStoreService.buildSchemaKeyStore(this.schema);
     });
   }
-  
 }
 

@@ -1,0 +1,36 @@
+<div class="container">
+      <div class="row">
+<label>Action:</label>
+<div class="btn-group" dropdown>
+  <select class="form-control"  [(ngModel)]="selectedAction" required>
+    <option *ngFor="let action of actions" [ngValue]="action" > {{action}} </option>
+    </select>
+</div>
+<div *ngIf="selectedAction == 'Addition'"> 
+<label>Field Key:</label><input type="text"  style="width: 300px" [(ngModel)]="mainKey" class="form-control"  placeholder="Action key...">
+<label>Input Value:</label><input type="text"  style="width: 300px" [(ngModel)]="value" class="form-control"  placeholder="Value to be placed...">
+<label>Update Value:</label><input type="text"  style="width: 300px" [(ngModel)]="whereValue" class="form-control"  placeholder="Value to be replaced...">
+<label>Where Key:</label><input type="text"  style="width: 300px" [(ngModel)]="whereKey" class="form-control"  placeholder="Where key...">
+<label>Where Value:</label><input type="text"  style="width: 300px" [(ngModel)]="whereValue" class="form-control"  placeholder="Where value to be checked...">
+</div> 
+
+<div *ngIf="selectedAction == 'Update'">   
+<input type="text"  style="width: 300px" [(ngModel)]="mainKey" class="form-control"  placeholder="Action key...">
+<input type="text"  style="width: 300px" [(ngModel)]="value" class="form-control"  placeholder="Value to be placed...">
+<input type="text"  style="width: 300px" [(ngModel)]="replaceValue" class="form-control"  placeholder="Value to be replaced...">
+<input type="text"  style="width: 300px" [(ngModel)]="whereKey" class="form-control"  placeholder="Where key...">
+<input type="text"  style="width: 300px" [(ngModel)]="whereValue" class="form-control"  placeholder="Where value to be checked...">
+
+</div>
+
+<div *ngIf="selectedAction == 'Deletion'">   
+<input type="text"  style="width: 300px" [(ngModel)]="mainKey" class="form-control"  placeholder="Action key...">
+<input type="text"  style="width: 300px" [(ngModel)]="value" class="form-control"  placeholder="Value to be placed...">
+<input type="text"  style="width: 300px" [(ngModel)]="replaceValue" class="form-control"  placeholder="Value to be replaced...">
+<input type="text"  style="width: 300px" [(ngModel)]="whereKey" class="form-control"  placeholder="Where key...">
+<input type="text"  style="width: 300px" [(ngModel)]="whereValue" class="form-control"  placeholder="Where value to be checked...">
+</div>  
+</div>
+</div>
+
+
