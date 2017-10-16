@@ -5,9 +5,8 @@ import {
 
 import 'rxjs/add/operator/toPromise';
 
-import { SchemaKeysStoreService, QueryService } from '../shared/services';
+import { SchemaKeysStoreService, QueryService, JsonUtilsService, UserActionsService } from '../shared/services';
 import { UserActions } from '../shared/interfaces';
-import { UserActionsService } from '../shared/services';
 
 @Component({
   selector: 'me-multi-editor',
@@ -32,6 +31,7 @@ export class MultiEditorComponent implements OnInit {
   selectedCollection: string;
   newRecords: object[];
   uuids: string[] = [];
+  filterExpression: string;
 
   readonly collections: object[] = [
     ['hep', 'HEP'],
@@ -52,7 +52,8 @@ export class MultiEditorComponent implements OnInit {
     private schemaKeysStoreService: SchemaKeysStoreService,
     private changeDetectorRef: ChangeDetectorRef,
     private queryService: QueryService,
-    private userActionsService: UserActionsService) { }
+    private userActionsService: UserActionsService,
+    private jsonUtilsService: JsonUtilsService) { }
 
   ngOnInit() {
     this.newRecords = [];
@@ -138,7 +139,7 @@ export class MultiEditorComponent implements OnInit {
       .subscribe((json) => {
         this.records = json.oldRecords['json_records'];
         this.uuids = json.oldRecords['uuids'];
-        this.newRecords = json.newRecords['json_records'];
+        this.newRecords = this.jsonUtilsService.filterJsonArray(json.newRecords['json_records'], this.filterExpression);
         this.recordErrors = json.newRecords['errors'];
         this.changeDetectorRef.markForCheck();
       },

@@ -2,7 +2,7 @@
   <label class="form-group">Field:</label>
   <div class="form-group">
     <me-autocomplete-input *ngIf="isEditorVisible === false" type="text" name="key"
-                           (valueChange)="onValueChange($event)" [className]="'form-control input-sm'" placeholder="field key"></me-autocomplete-input>
+                           (valueChange)="onValueChange($event)" className="form-control input-sm" placeholder="field key"></me-autocomplete-input>
     <div *ngIf="isEditorVisible === true">
       <div class="editor">
         <json-editor [config]="{compact:true}" [schema]="subSchema" [record]="record" (recordChange)="saveRecord($event)"></json-editor>

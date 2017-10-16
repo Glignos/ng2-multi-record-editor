@@ -1,5 +1,5 @@
 <input [(ngModel)]="value" [typeahead]="dataSource" (typeaheadNoResults)="typeaheadNoResults = $event"
-       (typeaheadOnSelect)="selectUserInput($event)" [attr.class]="className" [typeaheadMinLength]="0">
+       (typeaheadOnSelect)="selectUserInput($event)" [attr.class]="className" [typeaheadMinLength]="0" [placeholder]="placeholder">
 <div *ngIf="typeaheadNoResults===true">
   <i class="fa fa-remove"></i> No Results Found
 </div>

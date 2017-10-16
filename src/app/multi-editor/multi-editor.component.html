@@ -11,13 +11,20 @@
     </div>
 
     <div *ngIf="totalRecords > 0">
+      <div class="tag-filter">
+        <label>Show only:</label>
+        <me-autocomplete-input type="text" name="key"
+                               (valueChange)="filterExpression = $event" className="form-control input-sm inline-input" placeholder="field key">
+        </me-autocomplete-input>
+      </div>
       <div class="preview-border">
         <button class="btn-success button" (click)="onPreviewClick()">Preview</button>
       </div>
       <div class="row ">
         <div class="col-md-2">
           <span>
-            <input class="results-checkbox" type="checkbox" [checked]="checkedRecords.length === 0" (change)="selectAll()"> Select all results</span>
+            <input class="results-checkbox" type="checkbox" [checked]="checkedRecords.length === 0" (change)="selectAll()"> Select all results
+          </span>
         </div>
         <div class="col-md-2  col-md-offset-5">
           <span class="results-record-num">{{totalRecords}} records found</span>
@@ -27,8 +34,7 @@
             [rotate]="false" (pageChanged)="onPageChange($event.page)" [itemsPerPage]="pageSize" [align]="false"></pagination>
         </div>
       </div>
-
-      <li *ngFor="let record of records ; let count = index; trackBy: trackByFunction" class="list-group list-group-item">
+      <li *ngFor="let record of records | tagFilter:filterExpression; let count = index; trackBy: trackByFunction" class="list-group list-group-item">
         <input type="checkbox" [checked]="checkedRecords.indexOf(uuids[count]) === -1" (change)="addChecked(uuids[count])">
         <div *ngIf="previewMode === false;then recordView else diffView"></div>
         <ng-template #diffView>

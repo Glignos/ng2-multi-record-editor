@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map';
 export class AutocompleteInputComponent {
 
   @Input() className;
+  @Input() placeholder;
   @Output() valueChange = new EventEmitter<string>();
   value = '';
 
@@ -56,7 +57,7 @@ export class AutocompleteInputComponent {
       query = '';
     } else {
       path = value.slice(0, separatorIndex);
-      query = value.slice(separatorIndex);
+      query = value.slice(separatorIndex + 1);
     }
     return {path, query};
   }

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MultiEditorComponent } from './multi-editor';
-import { SHARED_SERVICES } from './shared';
+import { SHARED_SERVICES, SHARED_PIPES } from './shared';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -24,6 +24,7 @@ import { AutocompleteInputComponent } from './autocomplete-input';
 
 @NgModule({
   declarations: [
+    ...SHARED_PIPES,
     AppComponent,
     MultiEditorComponent,
     ActionTemplateComponent,
@@ -48,9 +49,7 @@ import { AutocompleteInputComponent } from './autocomplete-input';
     JsonEditorModule,
     TypeaheadModule.forRoot()
   ],
-  providers: [
-    SHARED_SERVICES
-  ],
+  providers: SHARED_SERVICES,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
