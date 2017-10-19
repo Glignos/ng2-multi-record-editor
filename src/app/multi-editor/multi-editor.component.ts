@@ -139,11 +139,19 @@ export class MultiEditorComponent implements OnInit {
       .subscribe((json) => {
         this.records = json.oldRecords['json_records'];
         this.uuids = json.oldRecords['uuids'];
-        this.newRecords = this.jsonUtilsService.filterJsonArray(json.newRecords['json_records'], this.filterExpression);
+        this.newRecords = json.newRecords['json_records'];
         this.recordErrors = json.newRecords['errors'];
         this.changeDetectorRef.markForCheck();
       },
       error => { this.errorText = error; this.changeDetectorRef.markForCheck(); });
+  }
+
+  filterNewRecord(record: {}): {} {
+    let _record = Object.assign({}, record);
+    if (this.filterExpression) {
+      return this.jsonUtilsService.filterJson(_record, [this.filterExpression]);
+    }
+    return record;
   }
 
   private queryCollection(query, collection) {

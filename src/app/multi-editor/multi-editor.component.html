@@ -1,4 +1,4 @@
-<me-editor-toolbar-container (onSearchRecordClick)="searchRecords(query)" (onCollectionChange)="onCollectionChange($event)"></me-editor-toolbar-container>
+<me-editor-toolbar-container (onSearchRecordClick)="searchRecords($event)" (onCollectionChange)="onCollectionChange($event)"></me-editor-toolbar-container>
 <div class="container me-container">
   <me-actions></me-actions>
   <div class="me-bar">
@@ -39,9 +39,9 @@
         <div *ngIf="previewMode === false;then recordView else diffView"></div>
         <ng-template #diffView>
           <div *ngIf="recordErrors[count]">
-            <span class="error">{{recordErrors[count]}} tagme</span>
+            <span class="error">{{recordErrors[count]}}</span>
           </div>
-          <me-diff-view [oldObject]="record" [newObject]="newRecords[count]"></me-diff-view>
+          <me-diff-view [oldObject]="record" [newObject]="filterNewRecord(newRecords[count])"></me-diff-view>
         </ng-template>
         <ng-template #recordView>
           <pre>{{record | json}} </pre>
